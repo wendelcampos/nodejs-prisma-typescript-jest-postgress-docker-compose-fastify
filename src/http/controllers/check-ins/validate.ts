@@ -1,6 +1,6 @@
-/* eslint-disable prettier/prettier */
 import { FastifyRequest, FastifyReply } from 'fastify'
 import { z } from 'zod'
+
 import { makeValidateCheckInUseCase } from '@/useCases/factories/make-validate-check-in-use-case'
 
 export async function validate(request: FastifyRequest, reply: FastifyReply) {

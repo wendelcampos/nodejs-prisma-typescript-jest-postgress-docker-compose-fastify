@@ -1,4 +1,3 @@
-/* eslint-disable prettier/prettier */
 import { makeGetUserProfileUsecase } from '@/useCases/factories/make-get-user-profile-use-case'
 import { FastifyRequest, FastifyReply } from 'fastify'
 

@@ -1,4 +1,3 @@
-/* eslint-disable prettier/prettier */
 import { GetUserMetricsUseCase } from '../get-user-metrics'
 import { PrismaCheckInsRepository } from '@/repositories/prisma/prisma-check-ins-repository'
 

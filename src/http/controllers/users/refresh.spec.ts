@@ -1,4 +1,3 @@
-/* eslint-disable prettier/prettier */
 import request from 'supertest'
 import { app } from '@/app'
 import { afterAll, beforeAll, describe, expect, it } from 'vitest'
@@ -28,7 +27,7 @@ describe('Refresh Token (e2e)', () => {
                 password: '123456'
             })
 
-        const cookies = authResponse.get('Set-Cookie')
+        const cookies: any = authResponse.get('Set-Cookie')
 
         const response = await request(app.server)
             .patch('/token/refresh')

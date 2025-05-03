@@ -1,11 +1,10 @@
-/* eslint-disable prettier/prettier */
 import fastify from 'fastify'
 import fastifyJwt from '@fastify/jwt'
 import fastifyCookie from '@fastify/cookie'
-import { usersRoutes } from './http/controllers/users/routes'
 import { ZodError } from 'zod'
-import { env } from './env'
 
+import { env } from './env'
+import { usersRoutes } from '../src/http/controllers/users/routes'
 import { gymsRoutes } from './http/controllers/gyms/routes'
 import { checkInsRoutes } from './http/controllers/check-ins/routes'
 
@@ -32,13 +31,13 @@ app.setErrorHandler((error, _, reply) => {
     if(error instanceof ZodError) {
         return reply
             .status(400)
-            .send({ message: 'Validation error.', issues: error.format })
+            .send({ message: 'Validation error.', issues: error.format() })
     }
 
     if(env.NODE_ENV !== 'production') {
         console.error(error)
     } else {
-        //
+        //TODO: Here we should log to an external service Datadog, Sentry, NewRelic, etc.
     }
 
     return reply.status(500).send({ message: 'Internal Server Error' })

@@ -1,6 +1,3 @@
-/* eslint-disable prettier/prettier */
-/* eslint-disable @typescript-eslint/no-unused-vars */
-/* eslint-disable prettier/prettier */
 import { expect, describe, it, beforeEach } from 'vitest'
 import { InMemoryGymsRepository } from '@/repositories/in-memory/in-memory-gyms-repository'
 import { CreateGymUseCase } from './create-gym'
@@ -23,7 +20,6 @@ describe('Create Gym Use Case', () => {
             phone: null,
             latitude: -27.0747279,
             longitude: -49.4889672
-
         })
         expect(gym.id).toEqual(expect.any(String))
     })

@@ -1,4 +1,3 @@
-/* eslint-disable prettier/prettier */
 import { CheckInsRepository } from '@/repositories/check-ins-repository'
 
 interface GetUserMetricsUseCaseRequest {

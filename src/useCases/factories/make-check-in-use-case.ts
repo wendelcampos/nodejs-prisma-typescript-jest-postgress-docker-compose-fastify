@@ -1,4 +1,3 @@
-/* eslint-disable prettier/prettier */
 import { PrismaGymsRepository } from '@/repositories/prisma/prisma-gyms-repository'
 import { CheckInUseCase } from '../check-in'
 import { PrismaCheckInsRepository } from '@/repositories/prisma/prisma-check-ins-repository'

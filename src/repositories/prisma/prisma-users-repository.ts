@@ -1,11 +1,7 @@
-/* eslint-disable prettier/prettier */
-/* eslint-disable @typescript-eslint/no-unused-vars */
-/* eslint-disable prettier/prettier */
 import { prisma } from '@/lib/prisma'
 import { Prisma } from '@prisma/client'
-import { UsersRespository } from '../users-repository'
-
-export class PrismaUsersRepository implements UsersRespository {
+import { UsersRepository } from '../users-repository'
+export class PrismaUsersRepository implements UsersRepository {
   async findById(id: string) {
     const user = await prisma.user.findUnique({
       where: {

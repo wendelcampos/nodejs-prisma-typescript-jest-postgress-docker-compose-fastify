@@ -1,4 +1,3 @@
-/* eslint-disable prettier/prettier */
 import { FastifyRequest, FastifyReply } from 'fastify'
 import { z } from 'zod'
 import { InvalidCrendentialsError } from '@/useCases/errors/invalid-credentials-error'
@@ -23,7 +22,7 @@ export async function authenticate(request: FastifyRequest, reply: FastifyReply)
 
     const token = await reply.jwtSign(
       {
-        role: user
+        role: user.role,
       }, 
       {
         sign: {
@@ -33,7 +32,7 @@ export async function authenticate(request: FastifyRequest, reply: FastifyReply)
 
     const refreshToken = await reply.jwtSign(
       {
-        role: user
+        role: user.role,
       }, 
       {
         sign: {

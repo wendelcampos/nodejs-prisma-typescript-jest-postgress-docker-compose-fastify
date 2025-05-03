@@ -1,4 +1,3 @@
-/* eslint-disable prettier/prettier */
 import { GetUserProfileUseCase } from '../get-user-profile'
 import { PrismaUsersRepository } from '@/repositories/prisma/prisma-users-repository'
 

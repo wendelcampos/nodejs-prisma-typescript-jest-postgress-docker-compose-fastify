@@ -1,13 +1,9 @@
-/* eslint-disable prettier/prettier */
-/* eslint-disable @typescript-eslint/no-unused-vars */
 import { Gym, Prisma } from '@prisma/client'
 import { GymsRespository, findManyNearbyParams } from '../gyms-repository'
 import { randomUUID } from 'node:crypto'
 import { getDistanceBetweenCoordinates } from '@/useCases/utils/get-distance-between-cordinate'
-
 export class InMemoryGymsRepository implements GymsRespository {
  
-
     public items: Gym[] = []
 
     async findById(id: string) {
@@ -38,7 +34,6 @@ export class InMemoryGymsRepository implements GymsRespository {
             .slice((page -1) * 20, page * 20)
     }
  
-
     async create(data: Prisma.GymCreateInput) {
         const gym = {
             id: data.id ?? randomUUID(),

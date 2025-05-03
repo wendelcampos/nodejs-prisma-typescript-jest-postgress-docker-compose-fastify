@@ -1,6 +1,6 @@
-/* eslint-disable prettier/prettier */
 import { FastifyRequest, FastifyReply } from 'fastify'
 import { z } from 'zod'
+
 import { makeCreateGymUseCase } from '@/useCases/factories/make-create-gym-use-case'
 
 export async function create(request: FastifyRequest, reply: FastifyReply) {
@@ -17,7 +17,6 @@ export async function create(request: FastifyRequest, reply: FastifyReply) {
   })
 
   const { title, description, phone, latitude, longitude } = createGymBodySchema.parse(request.body)
-
 
     const createGymUseCase = makeCreateGymUseCase()
     

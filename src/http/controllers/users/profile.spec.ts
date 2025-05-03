@@ -1,4 +1,3 @@
-/* eslint-disable prettier/prettier */
 import request from 'supertest'
 import { app } from '@/app'
 import { afterAll, beforeAll, describe, expect, it } from 'vitest'
@@ -13,7 +12,7 @@ describe('Profile (e2e)', () => {
         await app.close()
     })
 
-    it('should be able to get use profile', async () => {
+    it('should be able to get user profile', async () => {
        
         const { token } = await createAndAuthenticateUser(app)
 

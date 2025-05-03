@@ -1,6 +1,3 @@
-/* eslint-disable prettier/prettier */
-/* eslint-disable @typescript-eslint/no-unused-vars */
-/* eslint-disable prettier/prettier */
 import { expect, describe, it, beforeEach, vi, afterEach } from 'vitest'
 import { InMemoryCheckInsRepository } from '@/repositories/in-memory/in-memory-check-ins-repository'
 import { ValidateCheckInUseCase } from './validate-check-in'
@@ -44,7 +41,7 @@ describe('Validate Check-in Use Case', () => {
         })).rejects.toBeInstanceOf(ResourceNotFoundError)
     })
 
-    it.skip('should not be able to validate the check-in after 20 minutes of its creation', async () => {
+    it('should not be able to validate the check-in after 20 minutes of its creation', async () => {
         vi.setSystemTime(new Date(2023, 0, 1, 13, 40))
 
         const createdCheckin = await checkInsRepository.create({

@@ -1,5 +1,4 @@
-/* eslint-disable prettier/prettier */
-import { UsersRespository } from '@/repositories/users-repository'
+import { UsersRepository } from '@/repositories/users-repository'
 import { InvalidCrendentialsError } from './errors/invalid-credentials-error'
 import { compare } from 'bcryptjs'
 import { User } from '@prisma/client'
@@ -14,7 +13,7 @@ interface AuthenticateUseCaseResponse {
 }
 
 export class AuthenticateUseCase {
-  constructor(private usersRepository: UsersRespository) {}
+  constructor(private usersRepository: UsersRepository) {}
 
   async execute({ email, password }: AuthenticateUseCaseRequest): Promise<AuthenticateUseCaseResponse> {
     const user = await this.usersRepository.findByEmail(email)

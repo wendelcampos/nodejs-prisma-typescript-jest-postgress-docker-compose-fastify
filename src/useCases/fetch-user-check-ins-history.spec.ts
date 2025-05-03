@@ -1,6 +1,3 @@
-/* eslint-disable prettier/prettier */
-/* eslint-disable @typescript-eslint/no-unused-vars */
-/* eslint-disable prettier/prettier */
 import { expect, describe, it, beforeEach } from 'vitest'
 import { InMemoryCheckInsRepository } from '@/repositories/in-memory/in-memory-check-ins-repository'
 import { FetchUserCheckInsHistoryUseCase } from './fetch-user-check-ins-history'
@@ -8,7 +5,7 @@ import { FetchUserCheckInsHistoryUseCase } from './fetch-user-check-ins-history'
 let checkInsRepository: InMemoryCheckInsRepository
 let sut: FetchUserCheckInsHistoryUseCase
 
-describe('Fetch Check-in History Use Case', () => {
+describe('Fetch User Check-in History Use Case', () => {
 
     beforeEach(async () => {
         checkInsRepository = new InMemoryCheckInsRepository()

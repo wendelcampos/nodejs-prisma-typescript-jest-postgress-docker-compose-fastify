@@ -1,4 +1,3 @@
-/* eslint-disable prettier/prettier */
 import { FetchNearbyGymUseCase } from '../fatch-nearby-gyms'
 import { PrismaGymsRepository } from '@/repositories/prisma/prisma-gyms-repository'
 

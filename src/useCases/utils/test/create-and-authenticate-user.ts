@@ -1,9 +1,7 @@
-/* eslint-disable prettier/prettier */
 import { prisma } from "@/lib/prisma"
 import { hash } from "bcryptjs"
 import { FastifyInstance } from "fastify"
 import request from "supertest"
-
 
 export async function createAndAuthenticateUser(app: FastifyInstance, isAdmin =  false) {
   await prisma.user.create({
@@ -20,12 +18,12 @@ export async function createAndAuthenticateUser(app: FastifyInstance, isAdmin = 
     password: '123456',
   })
 
-  const authReponse = await request(app.server).post('/sessions').send({
+  const authResponse = await request(app.server).post('/sessions').send({
     email: 'johndoe@example.com',
     password: '123456',
   })
 
-  const { token } = authReponse.body
+  const { token } = authResponse.body
 
   return {
     token

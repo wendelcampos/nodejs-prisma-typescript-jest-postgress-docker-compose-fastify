@@ -1,15 +1,14 @@
-/* eslint-disable prettier/prettier */
 import { FastifyRequest, FastifyReply } from 'fastify'
 import { z } from 'zod'
 import { makeSearchGymsUseCase } from '@/useCases/factories/make-search-gyms-use-case'
 
 export async function search(request: FastifyRequest, reply: FastifyReply) {
-    const searchGymBodySchema = z.object({
+    const searchGymQuerySchema = z.object({
         query: z.string(),
         page: z.coerce.number().min(1).default(1)
     })
 
-    const { query, page } = searchGymBodySchema.parse(request.query)
+    const { query, page } = searchGymQuerySchema.parse(request.query)
 
 
     const searchGymUseCase = makeSearchGymsUseCase()

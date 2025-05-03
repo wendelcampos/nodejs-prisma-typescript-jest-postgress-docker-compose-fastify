@@ -1,12 +1,10 @@
-/* eslint-disable prettier/prettier */
-/* eslint-disable @typescript-eslint/no-unused-vars */
 import 'dotenv/config'
 
 import { randomUUID } from 'node:crypto'
 import { execSync } from 'node:child_process'
-import { Environment } from 'vitest'
-import { PrismaClient } from '@prisma/client'
 
+import type { Environment } from 'vitest'
+import { PrismaClient } from '@prisma/client'
 
 // postgresql://docker:docker@localhost:5432/apisolid?schema=public
 
@@ -24,7 +22,7 @@ function generateDatabaseURL(schema: string) {
     return url.toString()
 }
 
-export default <Environment><unknown>{
+export default <Environment>{
     name: 'prisma',
     transformMode: 'ssr',
     async setup() {

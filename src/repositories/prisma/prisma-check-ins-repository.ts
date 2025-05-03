@@ -1,7 +1,4 @@
-/* eslint-disable prettier/prettier */
-/* eslint-disable @typescript-eslint/no-unused-vars */
-/* eslint-disable prettier/prettier */
-import { Prisma } from '@prisma/client';
+import { CheckIn, Prisma } from '@prisma/client';
 import { CheckInsRepository } from '../check-ins-repository'
 import { prisma } from '@/lib/prisma';
 import dayjs from 'dayjs';
@@ -64,12 +61,12 @@ export class PrismaCheckInsRepository implements CheckInsRepository {
         return checkIn
     }
 
-    async save(data: { id: string; created_at: Date; validated_at: Date | null; user_id: string; gym_id: string; }) {
+    async save(data: CheckIn) {
         const checkIn = await prisma.checkIn.update({
             where: {
                 id: data.id
             },
-            data
+            data: data
         })
 
         return checkIn

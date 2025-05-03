@@ -1,10 +1,8 @@
-/* eslint-disable prettier/prettier */
 import { ResourceNotFoundError } from './errors/resource-not-found-error'
 import { CheckInsRepository } from '@/repositories/check-ins-repository'
 import { CheckIn } from '@prisma/client'
 import dayjs from 'dayjs'
-import { InvalidCrendentialsError } from './errors/invalid-credentials-error'
-
+import { LAteCheckInValidationError } from './errors/late-chech-in-validation-error'
 
 interface ValidateCheckInUseCaseRequest {
   checkInId: string
@@ -19,7 +17,7 @@ export class ValidateCheckInUseCase {
       private checkInsRepository: CheckInsRepository
     ) {}
 
-  async execute({ checkInId}: ValidateCheckInUseCaseRequest): Promise<ValidateCheckInUseCaseResponse> {
+  async execute({ checkInId }: ValidateCheckInUseCaseRequest): Promise<ValidateCheckInUseCaseResponse> {
     const checkIn = await this.checkInsRepository.findById(checkInId)
 
     if(!checkIn) {
@@ -32,7 +30,7 @@ export class ValidateCheckInUseCase {
     )
 
     if(distanceInMinutesFromCheckInCreation > 20) {
-        throw new InvalidCrendentialsError()
+        throw new LAteCheckInValidationError()
     }
 
     checkIn.validated_at = new Date()

@@ -1,7 +1,5 @@
-/* eslint-disable prettier/prettier */
 import { Gym } from '@prisma/client'
 import { GymsRespository } from '@/repositories/gyms-repository'
-
 interface CreateGymUseCaseRequest {
    title: string,
    description: string | null
@@ -13,8 +11,6 @@ interface CreateGymUseCaseRequest {
 interface CreateGymUseCaseResponse {
     gym: Gym
 }
-
-
 export class CreateGymUseCase {
 
   constructor(private gymsRepository: GymsRespository) {}

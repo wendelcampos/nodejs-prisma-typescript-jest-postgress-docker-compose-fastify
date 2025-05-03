@@ -1,4 +1,3 @@
-/* eslint-disable prettier/prettier */
 import { Gym } from '@prisma/client'
 import { GymsRespository } from '@/repositories/gyms-repository'
 

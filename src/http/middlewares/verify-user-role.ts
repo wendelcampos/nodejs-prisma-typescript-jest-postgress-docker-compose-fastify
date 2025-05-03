@@ -1,6 +1,3 @@
-/* eslint-disable prettier/prettier */
-/* eslint-disable @typescript-eslint/no-unused-vars */
-/* eslint-disable prettier/prettier */
 import { FastifyReply, FastifyRequest } from 'fastify'
 
 export function verifyUserRole(roleToVerify: 'ADMIN' | 'MEMBER') {
@@ -11,5 +8,4 @@ export function verifyUserRole(roleToVerify: 'ADMIN' | 'MEMBER') {
             return reply.status(401).send({ message: 'Unauthorized'})
         }
     }
-   
 }
