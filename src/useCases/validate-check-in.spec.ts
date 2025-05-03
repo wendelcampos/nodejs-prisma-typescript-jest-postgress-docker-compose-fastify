@@ -42,6 +42,7 @@ describe('Validate Check-in Use Case', () => {
     })
 
     it('should not be able to validate the check-in after 20 minutes of its creation', async () => {
+        vi.useFakeTimers();
         vi.setSystemTime(new Date(2023, 0, 1, 13, 40))
 
         const createdCheckin = await checkInsRepository.create({
@@ -56,5 +57,7 @@ describe('Validate Check-in Use Case', () => {
         await expect(() => sut.execute({
             checkInId: createdCheckin.id
         })).rejects.toBeInstanceOf(Error)
+
+        vi.useRealTimers();
     } )
 })
